@@ -57,21 +57,23 @@ for (var i=0; i<btnMinusArry.length; i++) {
     //console.log(quantityValue);
     quantityTag.innerHTML=quantityValue
     }
+    const btnLikeArry=document.querySelectorAll(".like")
     
-    const btnDeleteArry=document.getElementsByClassName("del")
-    //console.log(btnDeleteArry);
+    const btnDeleteArry=document.querySelectorAll(".delete")
+    console.log(btnDeleteArry);
     for (var i=0; i<btnDeleteArry.length; i++) {
-        btnDeleteArry[i].addEventListener("click",remove)
+        btnDeleteArry[i].addEventListener("click",
+        function AbirlezmhaItslaH(e) {
+            const btnDelete=e.target
+            console.log(btnDelete);
+            const trElement=btnDelete.parentElement.parentElement.parentElement.parentElement
+            //console.log(trElement);
+             trElement.remove()
+            // //console.log(remove);
+        })
         btnLikeArry[i].addEventListener("click",like)
         }
-    function remove(delet) {
-        const btnDelete=delet.target
-        //console.log(btnDelete);
-        const trElement=btnDelete.parentElement.parentElement.parentElement.parentElement
-        //console.log(trElement);
-         trElement.remove()
-        //console.log(remove);
-    }
+
     function totalPrice(e){
         const checkboxElement=e.target
         //console.log(checkboxElement);
@@ -92,10 +94,12 @@ for (var i=0; i<btnMinusArry.length; i++) {
             btnPlus.removeAttribute
         }
     }
-    function init(lik) {
-        const btnLikeArry=document.getElementById("like").innerHTML;
+    function like(e) {
+        const btnLikeArry=e.target
+        console.log(btnLikeArry); 
         const trElement=btnLikeArry.parentElement.parentElement.parentElement.parentElement
-        //console.log(trElement);
-        document.getElementById("like").style.caretcolor=blue;
-        console.log(init);
+        console.log(trElement);
+        const btn=trElement.querySelector(".like")
+        btn.style.color = "blue";
+        console.log(btn);
     }
